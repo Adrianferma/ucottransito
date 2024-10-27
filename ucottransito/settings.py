@@ -25,7 +25,7 @@ SECRET_KEY = 'p=u*62l=1!w#cf-nzo^2*l^e+43_%i)^1xe44(m@04$syrt$ge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.ucotcitaciones.com', 'ucotcitaciones.com', '18.188.131.156', '127.0.0.1']
+ALLOWED_HOSTS = ['www.ucotcitaciones.com', 'ucotcitaciones.com', '18.188.131.156']
 
 # Application definition
 
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'ucottransito.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ucot',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': 'newdb',
+        'USER': 'newuser',
+        'PASSWORD': 'newpass',
+        'HOST': '18.188.131.156',
         'PORT': 5432,
         'OPTIONS': {
             'options': '-c timezone=UTC',
@@ -133,8 +133,8 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
