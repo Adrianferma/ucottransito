@@ -1,0 +1,193 @@
+{% extends 'index.html' %}
+{% block titulo%}
+Infracción
+{% endblock titulo%}
+{% block body %}
+
+
+<style>
+    .thead-custom {
+      background-color: #bcbcbc; /* Cambia esto al color que prefieras */
+      color: black; /* Opcional: cambiar el color del texto */
+  }
+</style>
+
+<div class="card mt-4">
+  
+
+ <div class="card-header text-center" style="background-color: #00008B; color: white;">
+  <br>
+      <strong>DETALLES DE LA BOLETA DE CITACIÓN DE INFRACCIONES DE TRÁNSITO<br></strong>
+      <br>
+    </div>
+
+<style>
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        background-color: #F4EAE8;
+        font-size: xx-small;
+    }
+
+    .table th {
+        background-color: #800000;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table td, .table th {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    @media (max-width: 767.98px) {
+        .table thead {
+            display: none;
+        }
+
+        .table tr {
+            display: block;
+            margin-bottom: 0.625rem;
+        }
+
+        .table td {
+            display: block;
+            text-align: right;
+            font-size: 0.8em;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .table td:last-child {
+            border-bottom: 0;
+        }
+    }
+</style>
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" frame="void" rules="none" cellspacing="0" cellpadding="0" bordercolor="#ffffff" border="0">
+            <thead class="thead-custom">
+                <tr>
+                    <th>Nro. Citación</th>
+                    <th>Fecha Infracción</th>
+                    <th>Hora Infracción</th>
+                    <th>Hora Detención</th>
+                    <th>Hora Registro</th>
+                    <th>Cédula/Licencia Conductor</th>
+                    <th>Nombre Conductor</th>
+                    <th>Categoria Licencia</th>
+                    <th>Tipo Licencia</th>
+                    <th>Placa Vehículo</th>
+                    <th>Marca Vehículo</th>
+                    <th>Tipo Vehículo</th>
+                    <th>Color Vehículo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in infraccion %}
+                    <tr>
+                        <td data-label="Nro. Citación">{{ i.NumeroInfraccion }}</td>
+                        <td data-label="Fecha Infracción">{{ i.Fecha_Infraccion }}</td>
+                        <td data-label="Hora Infracción">{{ i.Hora_Infraccion }}</td>
+                        <td data-label="Hora Detención">{{ i.Hora_Detencion }}</td>
+                        <td data-label="Hora Registro">{{ i.Hora_Registro }}</td>
+                        <td data-label="Cédula/Licencia Conductor">{{ i.Conductor.CedulaC }}</td>
+                        <td data-label="Nombre Conductor">{{ i.Conductor.Nombres }} {{ i.Conductor.Apellidos }}</td>
+                        <td data-label="Categoria Licencia">{{ i.Conductor.CategoriaLicencia }}</td>
+                        <td data-label="Tipo Licencia">{{ i.Conductor.TipoLicencia }}</td>
+                        <td data-label="Placa Vehículo">{{ i.Vehiculo.Placa }}</td>
+                        <td data-label="Marca Vehículo">{{ i.Vehiculo.Marca }}</td>
+                        <td data-label="Tipo Vehículo">{{ i.Vehiculo.Tipo }}</td>
+                        <td data-label="Color Vehículo">{{ i.Vehiculo.Color }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" frame="void" rules="none" cellspacing="0" cellpadding="0" bordercolor="#ffffff" border="0">
+            <thead class="thead-custom">
+                <tr>
+                    <th>Artículo C.O.I.P.</th>
+                    <th>Inciso del Artículo</th>
+                    <th>Numeral del Artículo</th>
+                    <th>Breve Relato de los Hechos</th>
+                    <th>Ubicación Infracción</th>
+                    <th>Nombre A.C.T.</th>
+                    <th>Cédula I. A.C.T.</th>
+                    <th>Ver Multimedia</th>
+                    <th>Ver Mapa</th>
+                    <th>Generar Reporte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in infraccion %}
+                    <tr>
+                        <td data-label="Artículo C.O.I.P.">{{ i.ArticuloC.Articulo }}</td>
+                        <td data-label="Inciso del Artículo">{{ i.ArticuloC.Inciso }}</td>
+                        <td data-label="Numeral del Artículo">{{ i.ArticuloC.Numeral }}</td>
+                        <td data-label="Breve Relato de los Hechos">{{ i.Descripcion }}</td>
+                        <td data-label="Ubicación Infracción">{{ i.Ubicacion }}</td>
+                        <td data-label="Nombre A.C.T.">{{ i.Agente.Nombres }} {{ i.Agente.Apellidos }}</td>
+                        <td data-label="Cédula I. A.C.T.">{{ i.Agente.Cedula }}</td>
+                        <td data-label="Ver Multimedia">
+                                <a href="/Gestionar_Evidencia/listarEvidencia/?Infraccion_Transito={{ i.NumeroInfraccion }}">
+                                    <button style="background-color: #2986cc; padding: 5px 10px; font-size: 12px;" type="submit" class="btn btn-primary">VER</button>
+                                </a>
+                        </td>
+                        <td data-label="Ver Mapa">
+                            <a href="/Gestionar_Infraccion/mapaInfraccion/?Infraccion_Transito={{ i.NumeroInfraccion }}">
+                                <button style="background-color:#8fce00; padding: 5px 10px; font-size: 12px;" type="submit" class="btn btn-primary">IR</button>
+                            </a>
+                        </td>
+                        <td data-label="Generar Reporte">
+                            <a href="/Gestionar_Infraccion/GeneratePdf/?Infraccion_Transito={{ i.NumeroInfraccion }}">
+                                <button style="background-color: #e97b09; padding: 5px 10px; font-size: 12px;" type="submit" class="btn btn-primary">REPORTE</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+  </div>
+</div>
+    
+    <script>
+function confirmLogout() {
+    if (confirm('¿Estás seguro de cerrar sesión?')) {
+        window.location.href = "{% url 'logout' %}";
+    } else {
+        // Si el usuario cancela, no se realiza ninguna acción
+    }
+}
+</script>
+
+{% if user.groups.all.0.name == "Agenteadmin" %}
+
+
+{% else %}
+<META HTTP-EQUIV="REFRESH" CONTENT="0; http://127.0.0.1:8000/admin">
+{% endif %}
+{% endblock body %}
