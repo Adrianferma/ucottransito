@@ -23,7 +23,6 @@ from django.conf.urls.static import static
 from apps.Gestionar_Infraccion.views import home, redireccionar
 from apps.Gestionar_Usuarios.views import homeadmin
 from apps.Gestionar_Usuarios.views import Login, Logout
-from apps.Gestionar_Infraccion import views as infraccion_views
 
 
 urlpatterns = [
@@ -39,5 +38,4 @@ urlpatterns = [
     path('api_generate_token/', views.obtain_auth_token),
     path('servicio_web/', include(('apps.servicio_web.urls', 'servicio_web'))),
     path('Gestionar_Evidencia/', include('apps.Gestionar_Evidencia.urls')),
-    path('mapa/', infraccion_views.mapa_view, name='mapa'),  # Agrega la ruta para mapa_view
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
