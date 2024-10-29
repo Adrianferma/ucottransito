@@ -118,7 +118,7 @@
             <i class="fa fa-angle-double-right my-float"></i>
         </a>
         <a class="navbar-brand text-dark" style="vertical-align: middle;" href="./">
-            <img src="{% static 'images/logos3.png' %}" alt="Logo" style="max-width: 100%; height: 40px;">
+            <img src="{% static 'images/logos3.png' %}" alt="Logo" style="max-width: 100%; height: 30px;">
             
         </a>
     </div>
@@ -131,12 +131,12 @@
         <iframe src="{% url 'mapa' %}"></iframe>
     </div>
 
-    <div class="navbar-header">
-       
-        <a class="navbar-brand text-dark" style="vertical-align: middle;" href="./">
-            <span class="user-display"><b>&nbsp;&nbsp;ACT: &nbsp;&nbsp;{{ logged_in_user.first_name }} {{ logged_in_user.last_name }}</b></span>
-        </a>
-    </div>
+    <div class="navbar-header" style="display: flex; justify-content: flex-start; align-items: center;">
+    <a class="navbar-brand text-dark" style="vertical-align: middle;" href="./">
+        <span class="user-display"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACT: &nbsp;{{ logged_in_user.first_name }} {{ logged_in_user.last_name }}</b></span>
+    </a>
+</div>
+
 
     
 

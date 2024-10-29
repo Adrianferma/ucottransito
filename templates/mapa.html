@@ -69,22 +69,20 @@
         
 <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
       {% csrf_token %}
+      
       <div class="form-group text-center">
-    <img src="{% static 'images/pinrojo.jpg' %}" style="width:40px" alt="Logo">
+    <img src="{% static 'images/pinrojo.jpg' %}" style="width:30px" alt="Logo">
     
-    <b style="color:#cc0000;">INFRACCIONES</b>
-    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-    <i style="color:#000000;"><strong>BUSQUEDA POR FECHAS:</strong></i>
-    &nbsp &nbsp
+    <b style="color:#cc0000;">INFRACCIONES =></b>
+   
+    <i style="color:#000000;"><strong>BUSQUEDA POR FECHAS:</strong></i><br/>
     <i><strong>Desde:</strong></i>
     <input type="date" id="FechaInicio" name="FechaInicio" placeholder="Fecha Inicio"/>
-    &nbsp &nbsp
+    
     <i><strong>Hasta:</strong></i>
     <input type="date" id="FechaFin" name="FechaFin" placeholder="Fecha Fin"/>
     <input type="submit" value="Buscar" class="btn btn-primary" style="background-color:#d31406">
-    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-
-
+  
       </div>
 
 </form>
@@ -102,8 +100,8 @@
           <label for="light">Light</label>
           <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
           <label for="dark">Dark</label>
-          <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-          <label for="outdoors">Outdoors</label>
+          {# <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" /> #}
+          {# <label for="outdoors">Outdoors</label> #}
           <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
           <label for="satellite">Satellite</label>
         </div>

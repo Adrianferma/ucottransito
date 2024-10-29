@@ -31,12 +31,12 @@
                     <form class="form text-center" method="POST">
                         {% csrf_token %}
                         <div class="form-group input-group-md">
-                            <label for="" style="font-size: 20px;"><br><strong>Nombre de usuario:</strong></label>
+                            <label for="" style="font-size: 20px;"><br><strong>Nombre de usuario:</strong></label><br/>
                            
                            {{ form.username }}
                         </div>
                         <div class="form-group input-group-md">
-                            <label for="" style="font-size: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Contraseña:</strong></label>
+                            <label for="" style="font-size: 20px;"><strong>Contraseña:</strong></label><br/>
                             {{ form.password }}
                         </div>
                         <button class="btn btn-lg btn-success mt-4" type="submit"><strong>Iniciar sesión</strong></button>
