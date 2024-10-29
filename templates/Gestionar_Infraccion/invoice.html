@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: Verdana, Geneva, sans-serif; /* Cambia el tipo de letra a Verdana */
+            font-family: Arial, sans-serif; /* Cambia el tipo de letra a Verdana */
             font-weight: 100;
             font-size: 8px;
             margin: 0;
@@ -38,6 +38,7 @@
             display: none;
         }
         .header, .details {
+            font-family: Arial, sans-serif; 
             font-size: 8px;
             text-align: left;
             color: #000000;
@@ -50,7 +51,7 @@
             font-weight: bold;
             padding: 0;
             margin: 0;
-            line-height: 1; /* Reduce el interlineado */
+            line-height: 1.2; /* Reduce el interlineado */
         }
         .hrItem {
             border: none;
@@ -61,11 +62,12 @@
             padding: 0;
         }
         i {
-            color: #990000;
+            font-family: Arial, sans-serif; 
+            color: #000000;
             font-style: normal;
             font-weight: bold;
-            line-height: 1; /* Reduce el interlineado */
-            letter-spacing: 1px; /* Ajusta el espaciado entre letras */
+            line-height: 1.2; /* Reduce el interlineado */
+            letter-spacing: 2x; /* Ajusta el espaciado entre letras */
         }
 
         /* Reducir el espacio de los saltos de línea */
@@ -99,66 +101,70 @@
         <div class='header'>  
             <hr class='hrItem'/>
             <p class='title' style='text-align: center;' >UNIDAD DE CONTROL OPERATIVO DE TRÁNSITO - LOJA</p>
-            <p class='h2'><b>BOLETA DE CITACIÓN DE INFRACCIÓN DE TRÁNSITO</b></p>
+            <p class='h2'style='text-align: center;'><b>BOLETA DE CITACIÓN DE INFRACCIÓN DE TRÁNSITO</b><br/></p>
         </div>
         <div class='details'>
             {% for i in infraccion %}
             <i>* DATOS DE LA CITACIÓN:</i><br/>
-            <b>Número de citación:</b> &nbsp;{{ i.NumeroInfraccion }}<br/>
-            <b>Fecha de infracción:</b> {{ i.Fecha_Infraccion }}<br/>
-            <b>Hora de infracción:</b> &nbsp;&nbsp;{{ i.Hora_Infraccion }}<br/>
-            <b>Hora de detención:</b> &nbsp;{{ i.Hora_Detencion }}<br/>
-            <b>Fecha de registro:</b> &nbsp;{{ i.Fecha_Registro}}
-            <b>- hora:</b> &nbsp;&nbsp;{{ i.Hora_Registro }}<br/><br/>
+            &nbsp;&nbsp;&nbsp;<b>Número de citación:</b> {{ i.NumeroInfraccion }}<br/>
+            &nbsp;&nbsp;&nbsp;<b>Fecha de infracción:</b> {{ i.Fecha_Infraccion }}<br/>
+            &nbsp;&nbsp;&nbsp;<b>Hora de infracción:</b> &nbsp;&nbsp;{{ i.Hora_Infraccion }}<br/>
+            &nbsp;&nbsp;&nbsp;<b>Hora de detención:</b> &nbsp;&nbsp;{{ i.Hora_Detencion }}<br/><br/>
+            {# <b>Fecha de registro:</b> &nbsp;{{ i.Fecha_Registro}} #}
+            {# <b>- Hora:</b> &nbsp;{{ i.Hora_Registro }}<br/><br/>  #}
 
             <i>* INFORMACIÓN DEL CONDUCTOR:</i><br/>
-            <b>Nro. Licencia:</b> {{ i.Conductor.CedulaC }}<br/>
-            <b>Nombres:</b> &nbsp;&nbsp;{{ i.Conductor.Nombres }}<br/>
-            <b>Apellidos:</b> &nbsp;&nbsp;{{ i.Conductor.Apellidos }}<br/>
-            <b>Tipo Licencia:</b> &nbsp;{{ i.Conductor.TipoLicencia }}<br/>
-            <b>Categoria Licencia:</b> &nbsp;{{ i.Conductor.CategoriaLicencia }}<br/><br/>
+            &nbsp;&nbsp;&nbsp; <b>Nro. Licencia:</b> {{ i.Conductor.CedulaC }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Nombres:</b> &nbsp;&nbsp;{{ i.Conductor.Nombres }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Apellidos:</b> &nbsp;&nbsp;{{ i.Conductor.Apellidos }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Tipo Licencia:</b> &nbsp;{{ i.Conductor.TipoLicencia }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Categoria Licencia:</b> &nbsp;{{ i.Conductor.CategoriaLicencia }}<br/><br/>
 
             <i>* CARACTERÍSTICAS DEL VEHÍCULO:</i><br/>
-            <b>Placa:</b> &nbsp;{{ i.Vehiculo.Placa }}<br/>
-            <b>Marca:</b> {{ i.Vehiculo.Marca }}<br/>
-            <b>Tipo:</b> &nbsp;&nbsp;{{ i.Vehiculo.Tipo }}<br/>
-            <b>Color:</b> {{ i.Vehiculo.Color }}<br/><br/>
+            &nbsp;&nbsp;&nbsp; <b>Placa:</b> &nbsp;{{ i.Vehiculo.Placa }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Marca:</b> {{ i.Vehiculo.Marca }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Tipo:</b> &nbsp;&nbsp;{{ i.Vehiculo.Tipo }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Color:</b> {{ i.Vehiculo.Color }}<br/><br/>
 
             <i>* CÓDIGO ORGÁNICO INTEGRAL PENAL:</i><br/>
-            <b>Artículo:</b> &nbsp;{{ i.ArticuloC.Articulo }}<br/>
-            <b>Inciso:</b> &nbsp;&nbsp;&nbsp;&nbsp;{{ i.ArticuloC.Inciso }}<br/>
-            <b>Numeral:</b> &nbsp;{{ i.ArticuloC.Numeral }}<br/><br/>
+            &nbsp; <b>Artículo:</b> &nbsp;{{ i.ArticuloC.Articulo }}<br/>
+            &nbsp; <b>Inciso:</b> &nbsp;&nbsp;&nbsp;&nbsp;{{ i.ArticuloC.Inciso }}<br/>
+            &nbsp; <b>Numeral:</b> {{ i.ArticuloC.Numeral }}<br/><br/>
 
             <i>* BREVE RELATO DE LOS HECHOS Y CIRCUNSTANCIAS:</i><br/>
-            <b>Descripción:</b> &nbsp;{{ i.Descripcion }}<br/><br/>
+            &nbsp;&nbsp;&nbsp; <b>Descripción:</b> &nbsp;{{ i.Descripcion }}<br/><br/>
 
             <i>* LOCALIZACIÓN:</i><br/>
-            <b>Sitio de infracción:</b> &nbsp;{{ i.Ubicacion }}<br/>
-            <b>Latitud:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.Latitud }}<br/>
-            <b>Longitud:</b> &nbsp;{{ i.Longitud }}<br/><br/>
-
-            <i>* DATOS DEL AGENTE CIVIL DE TRÁNSITO:</i><br/>
-            <b>Nombres:</b> &nbsp;{{ i.Agente.Nombres }}<br/>
-            <b>Apellidos:</b> {{ i.Agente.Apellidos }}<br/>
-            <b>Cédula:</b> &nbsp;&nbsp;&nbsp;&nbsp;{{ i.Agente.Cedula }}<br/>
-            {% endfor %}
+            &nbsp;&nbsp;&nbsp; <b>Sitio de infracción:</b> &nbsp;{{ i.Ubicacion }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Latitud:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.Latitud }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Longitud:</b> &nbsp;{{ i.Longitud }}<br/>            
+            
            
         <div>
 
             <div>
     <div class='details'><br/>
         <i>* EVIDENCIA:</i><br/>
-        <i style="color:#000000;"><b>Fotografía(s):</b></i><br/>
+        <i style="color:#000000;"></i><br/>
 <div class="photo-container">
     {% for i in foto|slice:":2" %} <!-- Solo toma las primeras dos fotos -->
-        <img src="{{ i.url }}" alt="Evidencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;<img src="{{ i.url }}" alt="Evidencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- Depuración: Muestra la URL generada -->
      
     {% endfor %}<br/>
+
+
+
+        <i>* DATOS DEL AGENTE CIVIL DE TRÁNSITO:</i><br/>
+            &nbsp;&nbsp;&nbsp; <b>Nombres:</b> &nbsp;{{ i.Agente.Nombres }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Apellidos:</b> {{ i.Agente.Apellidos }}<br/>
+            &nbsp;&nbsp;&nbsp; <b>Cédula:</b> &nbsp;&nbsp;&nbsp;&nbsp;{{ i.Agente.Cedula }}<br/><br/>
+            &nbsp;&nbsp;&nbsp; <b>Firma:</b><br/><br/>
+            {% endfor %}
 </div>
-        <b>------------------------------------------------------------------------------------------</b><br/>
+        <b>-----------------------------------------------------------------------------------------</b><br/>
         <b>Reporte generado el:</b> {{ hour }}
-        <b>------------------------------------------------------------------------------------------</b><br/>
+        <b>-----------------------------------------------------------------------------------------</b><br/>
     </div>
 </div>
     
