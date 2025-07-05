@@ -25,7 +25,7 @@ SECRET_KEY = 'p=u*62l=1!w#cf-nzo^2*l^e+43_%i)^1xe44(m@04$syrt$ge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.ucotcitaciones.com', 'ucotcitaciones.com', '18.119.86.232']
+ALLOWED_HOSTS = ['www.ucotcitaciones.com', 'ucotcitaciones.com', '18.224.55.89']
 
 # Application definition
 
