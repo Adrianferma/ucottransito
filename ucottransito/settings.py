@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'newdb',
         'USER': 'newuser',
         'PASSWORD': 'newpass',
-        'HOST': '18.188.131.156',
+        'HOST': '18.224.55.89',
         'PORT': 5432,
         'OPTIONS': {
             'options': '-c timezone=UTC',
